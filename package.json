@@ -1,0 +1,47 @@
+{
+  "name": "mdast-crud",
+  "version": "0.1.0",
+  "description": "CRUD operations for markdown files using mdast",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mdast-crud": "dist/cli.js"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": ["markdown", "mdast", "crud"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^13.1.0",
+    "mdast-util-from-markdown": "^2.0.2",
+    "mdast-util-gfm": "^3.1.0",
+    "mdast-util-to-markdown": "^2.1.2",
+    "micromark-extension-gfm": "^3.0.0",
+    "picocolors": "^1.1.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/mdast": "^4.0.4",
+    "@types/node": "^22.15.18",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "eslint": "^9.26.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.3",
+    "vitest": "^3.1.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  }
+}

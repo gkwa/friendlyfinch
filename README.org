@@ -1,0 +1,59 @@
+#+TITLE: mdast-crud
+#+AUTHOR:
+#+DATE:
+
+* mdast-crud
+
+CRUD operations for markdown files using mdast.
+
+** Installation
+
+#+begin_src shell
+pnpm install mdast-crud
+#+end_src
+
+** Cheatsheet
+
+#+begin_src shell
+# Create or update elements in a markdown file
+mdast-crud create file.md --type heading --content "New heading" --level 2
+
+# Read elements from a markdown file
+mdast-crud read file.md --type heading
+
+# Update elements in a markdown file
+mdast-crud update file.md --selector "heading[level=2]" --content "Updated heading"
+
+# Delete elements from a markdown file
+mdast-crud delete file.md --selector "paragraph:first-child"
+#+end_src
+
+** API
+
+The library exports the following functions:
+
+- ~createNode~: Create a new markdown node
+- ~readNodes~: Read nodes from markdown content
+- ~updateNodes~: Update nodes in markdown content
+- ~deleteNodes~: Delete nodes from markdown content
+- ~readMarkdownFile~: Read a markdown file
+- ~writeMarkdownFile~: Write to a markdown file
+
+** Usage
+
+#+begin_src typescript
+import { readMarkdownFile, createNode, writeMarkdownFile } from 'mdast-crud';
+
+// Read a markdown file
+const mdContent = await readMarkdownFile('README.md');
+
+// Create a new heading and add it to the content
+const updatedContent = createNode(mdContent, {
+  type: 'heading',
+  content: 'New Section',
+  level: 2
+});
+
+// Write the updated content back to a file
+await writeMarkdownFile('README.md', updatedContent);
+#+end_src
